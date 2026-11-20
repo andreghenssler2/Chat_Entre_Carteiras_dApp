@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Chat entre Carteiras | Ethereum Sepolia</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/web3/4.16.0/web3.min.js"></script>
+  <script defer src="abi.js"></script>
+  <script defer src="config.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <main class="container">
+    <header class="header">
+      <p class="eyebrow">FACCAT · DESENVOLVIMENTO DE APLICAÇÕES DESCENTRALIZADAS</p>
+      <h1>Chat entre Carteiras</h1>
+      <p>Envie recados entre duas pessoas usando a rede Ethereum Sepolia.</p>
+    </header>
+
+    <section class="panel wallet" aria-label="Carteira">
+      <div>
+        <h2>Carteira conectada</h2>
+        <p class="muted">Rede: <strong>Ethereum Sepolia</strong> · Chain ID 11155111</p>
+        <p id="walletText" class="mono">Nenhuma carteira conectada.</p>
+      </div>
+      <div class="actions">
+        <button type="button" id="connectBtn">Conectar MetaMask</button>
+        <button type="button" id="switchBtn" class="outline">Trocar para Sepolia</button>
+      </div>
+    </section>
+    <div id="status" class="notice" role="status" aria-live="polite">Conecte a MetaMask para começar.</div>
+
+    <div class="columns">
+      <section class="panel sidebar">
+        <h2>Escolher contato</h2>
+        <label for="contactAddress">Endereço da outra pessoa (0x...)</label>
+        <input id="contactAddress" type="text" spellcheck="false" autocomplete="off"
+               placeholder="0x1234..." maxlength="42" aria-describedby="contactHelp">
+        <p id="contactHelp" class="hint">A outra pessoa precisará de uma carteira diferente da sua.</p>
+        <button type="button" id="openBtn" disabled>Abrir conversa</button>
+        <div class="separator"></div>
+        <h3>Detalhes</h3>
+        <dl class="details">
+          <div><dt>Meu endereço</dt><dd id="myAddress" class="mono">—</dd></div>
+          <div><dt>Contato</dt><dd id="peerAddress" class="mono">—</dd></div>
+          <div><dt>Total</dt><dd id="messageCount">—</dd></div>
+          <div><dt>Contrato</dt><dd id="contractAddress" class="mono">Não configurado</dd></div>
+        </dl>
+        <p class="caution"><strong>Atenção:</strong> as mensagens são públicas e permanentes na blockchain. Não envie dados privados.</p>
+      </section>
+
+      <section class="panel conversation" aria-label="Conversa">
+        <div class="conversation-head">
+          <div><h2>Conversa</h2><p id="chatTitle" class="hint">Escolha um contato para começar.</p></div>
+          <button id="refreshBtn" type="button" class="outline small" disabled>Atualizar</button>
+        </div>
+        <div id="messages" class="messages" aria-live="polite">
+          <p class="empty">As mensagens aparecerão aqui.</p>
+        </div>
+        <form id="chatForm" class="composer">
+          <label for="messageText">Sua mensagem</label>
+          <textarea id="messageText" rows="3" maxlength="280" placeholder="Digite uma mensagem para a outra carteira..."></textarea>
+          <div class="composer-bottom">
+            <span id="byteCounter" class="hint">0 / 280 bytes UTF-8</span>
+            <button id="sendBtn" type="submit" disabled>Enviar pela MetaMask</button>
+          </div>
+        </form>
+      </section>
+    </div>
+    <section class="panel transaction">
+      <h2>Última transação enviada nesta sessão</h2>
+      <p id="txText" class="mono">Nenhuma transação enviada.</p>
+      <a id="txLink" href="#" target="_blank" rel="noopener noreferrer" hidden>Conferir no Sepolia Etherscan</a>
+    </section>
+    <footer>
+      Atualização automática a cada 8 segundos. Leitura: <code>call()</code> (sem transação).
+      Envio: <code>send()</code> (assinatura MetaMask + gas em SepoliaETH).
+      O site mostra as últimas 40 mensagens de cada par de carteiras.
+    </footer>
+  </main>
+</body>
+</html>

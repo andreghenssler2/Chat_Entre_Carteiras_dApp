@@ -1,0 +1,40 @@
+:root {font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:#1e2a42;background:#f5f7fc}
+* {box-sizing:border-box}
+body {margin:0}
+.container {max-width:1200px;margin:0 auto;padding:36px 20px 48px}
+.header {margin-bottom:22px}.eyebrow {font-size:12px;letter-spacing:.065em;font-weight:800;color:#5875bd}
+h1 {font-size:clamp(30px,4vw,43px);letter-spacing:-.05em;margin:8px 0}
+p {line-height:1.5}.header>p:last-child {color:#66748a;margin:5px 0}
+h2 {font-size:17px;margin:0 0 8px}h3 {font-size:14px;margin:0 0 10px}
+.panel {background:#fff;border:1px solid #dfe5f0;border-radius:16px;box-shadow:0 6px 18px rgba(22,40,72,.035);padding:22px}
+.wallet {display:flex;align-items:center;justify-content:space-between;gap:18px}
+.muted {color:#66748a;margin:5px 0}.mono {font:12px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;overflow-wrap:anywhere}
+.actions {display:flex;gap:10px;flex-wrap:wrap}button {cursor:pointer;font-weight:700;font-size:14px;background:#3154df;color:white;border:1px solid #3154df;border-radius:9px;padding:12px 15px}
+button:hover:not(:disabled) {filter:brightness(.93)}button:disabled {cursor:not-allowed;opacity:.5}
+button.outline {background:#f1f5ff;color:#3154df;border-color:#d2dcff}button.small {padding:8px 12px}
+.notice {padding:12px 15px;margin:17px 0;border-radius:9px;border:1px solid #d1defe;background:#eaf0ff;color:#345189;line-height:1.5}
+.notice.success {background:#e5f7ed;border-color:#bfe9d0;color:#1b6745}.notice.error {background:#fff0f0;border-color:#f3c6c6;color:#922b31}
+.columns {display:grid;grid-template-columns:325px minmax(0,1fr);gap:16px}
+label {display:block;font-size:14px;font-weight:700;margin:12px 0 7px}
+input,textarea {font:inherit;width:100%;border:1px solid #bdc9dd;border-radius:9px;padding:12px;font-size:14px;color:#1c2c49;background:#fff}
+input:focus,textarea:focus {outline:3px solid #d7e0ff;border-color:#5d7be9}
+.sidebar>button {width:100%;margin-top:12px}.hint {font-size:12px;color:#6a7891;line-height:1.5;margin:7px 0}
+.separator {height:1px;background:#e6ebf4;margin:22px 0}
+.details {margin:0}.details>div {border-bottom:1px solid #edf0f6;padding:9px 0;display:flex;gap:10px;align-items:baseline;justify-content:space-between}
+dt {font-size:12px;color:#6a7891}dd {margin:0;text-align:right;max-width:68%}.caution {font-size:12px;padding:12px;border-radius:9px;background:#fff7e4;color:#825c1f;margin:24px 0 0}
+.conversation {padding:0;display:flex;flex-direction:column;min-height:550px;overflow:hidden}
+.conversation-head {padding:18px 22px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #edf0f6;gap:10px}
+.conversation-head h2 {margin:0}.conversation-head .hint {margin:4px 0 0}
+.messages {padding:22px;flex:1;height:350px;min-height:250px;max-height:460px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;background:linear-gradient(180deg,#f9fbff,#fff)}
+.empty {color:#8190a5;text-align:center;margin:auto;font-size:14px}
+.bubble {align-self:flex-start;max-width:min(84%,500px);min-width:105px;border:1px solid #e1e8f4;background:#fff;border-radius:14px 14px 14px 4px;padding:11px 13px;overflow-wrap:anywhere}
+.bubble.mine {align-self:flex-end;background:#e9efff;border-color:#d0dcff;border-radius:14px 14px 4px 14px}
+.bubble .who {font-size:11px;color:#607494;font-weight:700;margin-bottom:6px}
+.bubble .body {font-size:14px;white-space:pre-wrap;line-height:1.5}.bubble .when {font-size:10px;color:#8490a3;text-align:right;margin-top:8px}
+.composer {border-top:1px solid #edf0f6;padding:14px 22px 20px;background:#fff}
+.composer textarea {min-height:70px;resize:vertical}.composer label {margin-top:0}
+.composer-bottom {display:flex;align-items:center;justify-content:space-between;gap:15px;margin-top:8px}
+#byteCounter.exceeded {color:#b1252b;font-weight:700}
+.transaction {margin-top:16px}.transaction h2 {font-size:14px}.transaction p {margin:6px 0}.transaction a {color:#3154df;font-size:13px;font-weight:700}
+footer {color:#6a7891;font-size:12px;line-height:1.6;margin-top:20px}
+@media(max-width:800px) {.columns {grid-template-columns:1fr}.wallet {flex-direction:column;align-items:flex-start}.container {padding:22px 13px 35px}.panel {padding:17px}.conversation {padding:0}.messages {min-height:320px}.conversation-head,.composer {padding:16px}.sidebar .details dd {max-width:74%}}
